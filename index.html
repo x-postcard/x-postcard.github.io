@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Загадочные Открытки</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+   <header>
+        <div class="header-top">
+            <h1>Загадочные Открытки</h1>
+            <div class="header-icons">
+                <a href="https://vk.com/x_postcard" target="_blank" class="vk-link">
+                    <img src="img/vk-icon.png" alt="ВКонтакте" class="vk-icon">
+                    ВКонтакте
+                </a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    🛒 <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="tagline">Открой тайну в каждой открытке</div>
+    </header>
+
+    <!-- Уведомление -->
+    <div id="notification" class="notification">Добавлено в корзину</div>
+
+    <!-- Модальное окно корзины -->
+    <div id="cart" class="cart hidden">
+        <h3>Ваша корзина</h3>
+        <ul id="cart-items"></ul>
+        <p><strong>Итого:</strong> <span id="total">0</span> руб.</p>
+        <button onclick="clearCart()">Очистить</button>
+        <button onclick="checkout()">Приобрести</button>
+        <span class="close-cart" onclick="toggleCart()">✖</span>
+    </div>
+
+    <!-- Форма оформления заказа -->
+    <div id="checkout-form" class="checkout hidden">
+        <h2>Оформление заказа</h2>
+        <form id="order-form" method="POST" action="https://formspree.io/f/manerrvb">
+            <input type="hidden" name="cart" id="cart-data">
+            <label>Имя:<br><input type="text" name="name" id="name" required></label><br><br>
+            <label>Email:<br><input type="email" name="email" id="email" required></label><br><br>
+            <button type="submit" class="cta-button" onclick="submitOrder()">Отправить заказ</button>
+            <button type="button" class="cta-button" onclick="closeCheckout()">Отмена</button>
+        </form>
+    </div>
+
+    <main>
+        <h2>Каждая открытка — это сюрприз</h2>
+        <p>Попробуй отгадать, что зашифровано в ней! Ты не узнаешь, что в ней искать, пока не перевернешь. Это может быть загадка, послание, вдохновение или нечто совсем неожиданное.</p>
+        <!--<button class="cta-button" onclick="scrollToGallery()">Посмотреть коллекцию</button>-->
+
+        <div id="cards" class="gallery">
+            <div class="card" data-title="Открытка с лисами" data-price="30">
+                <img src="img/ot2.jpg" alt="Открытка с лисами">
+                <div class="tooltip">Два лиса смотрят в даль</div>
+            </div>
+            <div class="card" data-title="Открытка с котами" data-price="40">
+                <img src="img/ot3.jpg" alt="Открытка с котами">
+                <div class="tooltip">Три пушистых друга на закате</div>
+            </div>
+            <div class="card" data-title="Заяц с морковкой" data-price="35">
+                <img src="img/ot1.jpg" alt="Заяц с морковкой">
+                <div class="tooltip">Заяц прячет морковку (или нет?)</div>
+            </div>
+            <div class="card" data-title="На катке" data-price="40">
+                <img src="img/ot4.jpg" alt="На катке">
+                <div class="tooltip">Зимняя прогулка на коньках</div>
+            </div>
+            <div class="card" data-title="Совы" data-price="30">
+                <img src="img/ot5.jpg" alt="Совы">
+                <div class="tooltip">Мудрые совы на дереве</div>
+            </div>
+        </div>
+
+        <button class="open-slider-btn" onclick="openSlider()">Посмотреть коллекцию</button>
+
+        
+        <div id="slider" class="slider hidden">
+            <span class="close-btn" onclick="closeSlider()">&times;</span>
+            <img id="slider-image" src="img/ot1.jpg" alt="Слайдер изображение">
+            <button class="nav-btn prev" onclick="prevSlide()">&#10094;</button>
+            <button class="nav-btn next" onclick="nextSlide()">&#10095;</button>
+        </div>
+
+    </main>
+
+    <footer>
+        © 2025 Загадочные Открытки. Все права защищены.
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>
