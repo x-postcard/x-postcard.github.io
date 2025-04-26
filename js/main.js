@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Закрыть форму
 function closeCheckout() {
-    document.getElementById("checkout-form").style.display = "none";
+    // document.getElementById("checkout-form").style.display = "none";
+    document.getElementById("checkout-form").classList.toggle("hidden");
 }
 
 function updateCartDisplay() {
@@ -56,7 +57,8 @@ function clearCart() {
 }
 
 function checkout() {
-    document.getElementById("checkout-form").classList.remove("hidden");
+    // document.getElementById("checkout-form").classList.remove("hidden");
+    document.getElementById("checkout-form").classList.toggle("hidden");
 }
 
 function submitOrder() {
