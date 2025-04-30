@@ -57,7 +57,6 @@ function clearCart() {
 }
 
 function checkout() {
-    // document.getElementById("checkout-form").classList.remove("hidden");
     document.getElementById("checkout-form").classList.toggle("hidden");
 }
 
