@@ -302,3 +302,19 @@ footer {
     .nav-btn.next {
         right: 20px;
     }
+
+/* Для кнопки Отправить открытку */
+.send-postcard-btn {
+    background-color: #f0f0f0; 
+    color: #333; 
+    font-weight: bold; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s, transform 0.3s;
+}
+    .send-postcard-btn:hover {
+        background-color: #ddd;
+        transform: scale(1.05);
+    }
+

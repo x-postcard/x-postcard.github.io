@@ -50,9 +50,22 @@
         </form>
     </div>
 
+    <!-- Форма заказа отправки открытки -->
+    <div id="checkout-form" class="checkout hidden">
+        <h2>Оформление заказа отправки открытки</h2>
+        <form id="order-form" method="POST" action="https://formspree.io/f/xvgazlar">
+            <input type="hidden" name="cart" id="cart-data">
+            <label>Имя:<br><input type="text" name="name" id="name" required></label><br><br>
+            <label>Email:<br><input type="email" name="email" id="email" required></label><br><br>
+            <label>Сообщение:<br><textarea name="message"></textarea><input type="message" name="message" id="message" required></label><br><br>
+            <button type="submit" class="cta-button" onclick="submitOrder()">Отправить заказ</button>
+            <button type="button" class="cta-button" onclick="closeCheckout()">Отмена</button>
+        </form>
+    </div>
+
     <main>
         <h2>Каждая открытка — это сюрприз</h2>
-        <p>Попробуй отгадать, что зашифровано в ней! Ты не узнаешь, что в ней искать, пока не перевернешь. Это может быть загадка, послание, вдохновение или нечто совсем неожиданное.</p>
+        <p>Попробуй отгадать, что зашифровано в ней! Ты не узнаешь, что в ней искать, пока не перевернешь.<br> Это может быть загадка, послание, вдохновение или нечто совсем неожиданное.</p>
         <!--<button class="cta-button" onclick="scrollToGallery()">Посмотреть коллекцию</button>-->
 
         <div id="cards" class="gallery">
@@ -80,6 +93,8 @@
 
         <button class="open-slider-btn" onclick="openSlider()">Посмотреть коллекцию</button>
 
+        <button class="cta-button send-postcard-btn" onclick="sendPostcard()">Отправить открытку</button>
+            
         
         <div id="slider" class="slider hidden">
             <span class="close-btn" onclick="closeSlider()">&times;</span>
